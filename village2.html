@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Village - Ghulduba</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/male-avatar.png">
+  
+  <!-- Optional: for older browsers -->
+  <link rel="shortcut icon" href="assets/images/male-avatar.png" type="image/png">
+
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html"><img src="https://ghulduba.com/wp-content/uploads/2023/04/Logo.gif" alt="Ghulduba Logo"></a>
+    </div>
+
+    <div class="mobile-menu-toggle">&#9776;</div>
+
+    <nav>
+      <ul class="nav-menu">
+        <!-- Close button for mobile menu -->
+        <li class="mobile-close">&times;</li>
+
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a href="family.html">Family</a>
+          <ul class="sub-menu">
+            <li><a href="family.html">Members Directory</a></li>
+            <li><a href="family-tree.html">Family Tree of Sheikh Dagu</a></li>
+            <li><a href="family-timeline.html">Family Timeline</a></li>
+          </ul>
+        </li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="gallery.html">Galleries</a></li>
+        <li class="search-icon">
+          <i class="fa fa-search"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Village Hero Section -->
+<section class="village-hero">
+  <img src="assets/images/family-hero.jpg" alt="Village" class="village-hero__bg">
+
+  <div class="village-hero__content">
+    <h1>Village</h1>
+
+    <div class="village-author">
+      <img
+        src="https://secure.gravatar.com/avatar/6c1dcade532a12f2fa9c004422ed00f9c4a0122a05a36976b4d931930b563a56?s=300&d=mm&r=g"
+        alt="Ghulduba"
+        class="village-author__avatar"
+      >
+      <span class="village-author__date">15/01/2022</span>
+      <span class="village-author__divider">|</span>
+      <span class="village-author__name">Ghulduba</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- Gallery Village Section -->
+<section class="gallery-village">
+    <div class="container">
+        <div class="gallery-village__grid">
+            <div class="gallery-village__item">
+                <img src="assets/images/V4.jpg" alt="Village Image 1">
+            </div>
+            <div class="gallery-village__item">
+                <img src="assets/images/V5.jpg" alt="Village Image 2">
+            </div>
+            <div class="gallery-village__item">
+                <img src="assets/images/V3.jpg" alt="Village Image 3">
+            </div>
+            <div class="gallery-village__item">
+                <img src="assets/images/V2.jpg" alt="Village Image 4">
+            </div>
+            <div class="gallery-village__item">
+                <img src="assets/images/V1.jpg" alt="Village Image 5">
+            </div>
+            <div class="gallery-village__item">
+                <img src="assets/images/V6.jpg" alt="Village Image 6">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Lightbox -->
+<div id="gallery-modal" class="gallery-modal">
+    <span class="gallery-close">&times;</span>
+    <img class="gallery-modal-content" id="gallery-modal-img">
+    <a class="gallery-prev">&#10094;</a>
+    <a class="gallery-next">&#10095;</a>
+</div>
+<script>
+    const modal = document.getElementById("gallery-modal");
+const modalImg = document.getElementById("gallery-modal-img");
+const images = document.querySelectorAll(".gallery-village__item img");
+const closeBtn = document.querySelector(".gallery-close");
+const prevBtn = document.querySelector(".gallery-prev");
+const nextBtn = document.querySelector(".gallery-next");
+
+let currentIndex = 0;
+
+images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        currentIndex = index;
+    });
+});
+
+closeBtn.onclick = function() { modal.style.display = "none"; }
+
+prevBtn.onclick = function() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    modalImg.src = images[currentIndex].src;
+}
+
+nextBtn.onclick = function() {
+    currentIndex = (currentIndex + 1) % images.length;
+    modalImg.src = images[currentIndex].src;
+}
+
+window.onclick = function(event) {
+    if(event.target == modal) modal.style.display = "none";
+}
+
+</script>
+
+
+
+
+
+
+
+
+<!-- footer -->
+ <footer id="footer" class="site-footer">
+  <div class="footer-inner">
+
+    <!-- Footer Widgets -->
+    <div class="footer-widgets">
+      <div class="container">
+        <div class="footer-widgets-grid">
+
+          <div class="footer-col">
+            <p>The family roots reach back to the early <strong>19th century</strong> India, founded by Sheikh Dagu, the middle‑class entrepreneur who together with Person A started a family now spanning four generations.</p>
+          </div>
+
+          <div class="footer-col">
+            <ul class="footer-nav">
+              <li><a href="family.html">Members Directory</a></li>
+              <li><a href="family-timeline.html">Family Tree</a></li>
+              <li><a href="family-timeline.html">Family Timeline</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <ul class="footer-nav">
+              <li><a href="history.html">Family History</a></li>
+              <li><a href="blog.html">Family Blog</a></li>
+              <li><a href="gallery.html">Galleries</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+<div class="footer-bottom">
+  <div class="container footer-bottom-inner">
+    <div class="footer-copy">
+      <p> Copyright &copy; 2025 <a href="/">Ghulduba</a></p>
+    </div>
+    <nav class="footer-menu">
+      <ul class="footer-menu-list">
+        <li><a href="terms.html">Website Terms</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="#top">Back to Top</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
